@@ -417,8 +417,7 @@ var _wp$element = wp.element,
     Component = _wp$element.Component;
 var _wp$components = wp.components,
     Placeholder = _wp$components.Placeholder,
-    Spinner = _wp$components.Spinner,
-    Dashicon = _wp$components.Dashicon;
+    Spinner = _wp$components.Spinner;
 /**
  * Block edit function
  */
@@ -483,7 +482,7 @@ function (_Component) {
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
           href: post.link,
           target: "_blank"
-        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", null, __('Posted on ', 'postslist-block')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("time", {
+        }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("time", {
           class: "entry-date published",
           datetime: moment__WEBPACK_IMPORTED_MODULE_8___default()(post.date_gmt).utc().format()
         }, moment__WEBPACK_IMPORTED_MODULE_8___default()(post.date_gmt).local().format('MMMM DD, Y', 'postslist-block')))))), post.featured_image_src ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
@@ -499,7 +498,7 @@ function (_Component) {
           className: "entry-summary"
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
           dangerouslySetInnerHTML: {
-            __html: truncate(post.excerpt.rendered, 200)
+            __html: truncate(post.excerpt.rendered, 55)
           }
         })));
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("nav", {
@@ -512,14 +511,10 @@ function (_Component) {
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
         href: "#",
         className: "prev page-numbers"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(Dashicon, {
-        icon: "arrow-left-alt2"
-      })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
+      }, __('« Newer Posts', 'postslist-block')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
         href: "#",
         className: "next page-numbers"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(Dashicon, {
-        icon: "arrow-right-alt2"
-      }))))));
+      }, __('Older Posts »', 'postslist-block'))))));
     }
   }]);
 

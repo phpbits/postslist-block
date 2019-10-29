@@ -3,8 +3,16 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: src/blocks/posts-list/components/edit.js:113
+#: src/blocks/posts-list/components/edit.js:112
 msgid "Posts navigation"
+msgstr ""
+
+#: src/blocks/posts-list/components/edit.js:114
+msgid "« Newer Posts"
+msgstr ""
+
+#: src/blocks/posts-list/components/edit.js:115
+msgid "Older Posts »"
 msgstr ""
 
 #: src/blocks/posts-list/components/edit.js:44
@@ -17,8 +25,4 @@ msgstr ""
 
 #: src/blocks/posts-list/components/edit.js:81
 msgid "(Untitled)"
-msgstr ""
-
-#: src/blocks/posts-list/components/edit.js:90
-msgid "Posted on "
 msgstr ""

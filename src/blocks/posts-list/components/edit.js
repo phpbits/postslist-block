@@ -13,7 +13,7 @@ const { compose } = wp.compose;
 const { withSelect } = wp.data;
 const { decodeEntities } = wp.htmlEntities;
 const { Fragment, Component } = wp.element;
-const { Placeholder, Spinner, Dashicon } = wp.components;
+const { Placeholder, Spinner } = wp.components;
 /**
  * Block edit function
  */
@@ -87,7 +87,6 @@ class Edit extends Component {
 										</span>
 										<span class="posted-on">
 											<a href={post.link} target="_blank">
-												<span>{__('Posted on ', 'postslist-block')}</span>
 												<time class="entry-date published" datetime={moment(post.date_gmt).utc().format()}>
 													{moment(post.date_gmt).local().format('MMMM DD, Y', 'postslist-block')}
 												</time>
@@ -103,7 +102,7 @@ class Edit extends Component {
 									</div>
 									: null}
 								<div className="entry-summary">
-									<div dangerouslySetInnerHTML={{ __html: truncate(post.excerpt.rendered, 200) }} />
+									<div dangerouslySetInnerHTML={{ __html: truncate(post.excerpt.rendered, 55) }} />
 								</div>
 
 							</article>
@@ -112,8 +111,8 @@ class Edit extends Component {
 					<nav class="navigation pagination" role="navigation">
 						<h2 class="screen-reader-text">{__('Posts navigation', 'postslist-block') }</h2>
 						<div className="nav-links">
-							<a href="#" className="prev page-numbers"><Dashicon icon="arrow-left-alt2" /></a>
-							<a href="#" className="next page-numbers"><Dashicon icon="arrow-right-alt2" /></a>
+							<a href="#" className="prev page-numbers">{__('« Newer Posts', 'postslist-block')}</a>
+							<a href="#" className="next page-numbers">{__('Older Posts »', 'postslist-block')}</a>
 						</div>
 					</nav>
 				</section>
