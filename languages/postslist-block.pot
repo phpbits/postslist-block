@@ -38,3 +38,23 @@ msgstr ""
 #: src/blocks/posts-list/components/inspector.js:29
 msgid "Change the number of posts displayed."
 msgstr ""
+
+#: src/blocks/posts-list/index.js:16
+msgid "Posts List"
+msgstr ""
+
+#: src/blocks/posts-list/index.js:17
+msgid "Display posts list with defined number of items to be shown."
+msgstr ""
+
+#: src/blocks/posts-list/index.js:19
+msgid "posts"
+msgstr ""
+
+#: src/blocks/posts-list/index.js:20
+msgid "post"
+msgstr ""
+
+#: src/blocks/posts-list/index.js:21
+msgid "blog"
+msgstr ""
