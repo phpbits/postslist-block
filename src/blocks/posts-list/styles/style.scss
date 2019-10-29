@@ -12,6 +12,7 @@ body {
 			header,
 			h2,
 			p,
+			figure,
 			.entry-meta,
 			.entry-media,
 			.entry-summary {
@@ -26,8 +27,8 @@ body {
 
 				a {
 					text-decoration: none;
-					border: 0px;
-   					box-shadow: none;
+					border: 0;
+					box-shadow: none;
 				}
 
 				.entry-meta {
@@ -92,8 +93,8 @@ body {
 						font-size: 18px;
 						font-weight: 400;
 						text-decoration: none;
-						border: 0px;
-   						box-shadow: none;
+						border: 0;
+						box-shadow: none;
 					}
 
 					.page-numbers {

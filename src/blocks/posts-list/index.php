@@ -2,7 +2,9 @@
 /**
  * Server-side rendering of the `wpengine-exercise/postslist` block.
  *
+ * @package PostsListBlockMain
  */
+
 /**
  * Renders the block on server.
  *
@@ -12,25 +14,25 @@
  */
 function wpengine_render_postslist_block( $attributes ) {
 	global $post;
-	
+
 	/* Setup the query */
-	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-	$postsListQuery = new WP_Query(
+	$paged            = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+	$posts_list_query = new WP_Query(
 		array(
-			'posts_per_page'      	=> $attributes['postsToShow'],
-			'paged'					=> $paged,
-			'post_status'         	=> 'publish',
-			'ignore_sticky_posts' 	=> 1,
-			'post__not_in'        	=> array( $post->ID ), // Exclude the current post from the grid.
+			'posts_per_page'      => $attributes['postsToShow'],
+			'paged'               => $paged,
+			'post_status'         => 'publish',
+			'ignore_sticky_posts' => 1,
+			'post__not_in'        => array( $post->ID ), // Exclude the current post from the grid.
 		)
 	);
 
-	$html = '<section class="postslist-block '. ( isset( $attributes['className'] ) ? $attributes['className'] : '' ) .' '. ( isset( $attributes['align'] ) ? 'align'. $attributes['align'] : '' ) .'">';
+	$html = '<section class="postslist-block ' . ( isset( $attributes['className'] ) ? $attributes['className'] : '' ) . ' ' . ( isset( $attributes['align'] ) ? 'align' . $attributes['align'] : '' ) . '">';
 
 	/* Start the loop */
-	if ( $postsListQuery->have_posts() ) {
-		while ( $postsListQuery->have_posts() ) {
-			$postsListQuery->the_post();
+	if ( $posts_list_query->have_posts() ) {
+		while ( $posts_list_query->have_posts() ) {
+			$posts_list_query->the_post();
 
 			/* Setup the post ID */
 			$post_id = get_the_ID();
@@ -46,7 +48,8 @@ function wpengine_render_postslist_block( $attributes ) {
 			}
 
 			/* Get the post excerpy */
-			$excerpt = apply_filters( 'the_excerpt',
+			$excerpt = apply_filters(
+				'the_excerpt',
 				get_post_field(
 					'post_excerpt',
 					$post_id,
@@ -55,7 +58,8 @@ function wpengine_render_postslist_block( $attributes ) {
 			);
 
 			if ( empty( $excerpt ) ) {
-				$excerpt = apply_filters( 'the_excerpt',
+				$excerpt = apply_filters(
+					'the_excerpt',
 					wp_trim_words(
 						preg_replace(
 							array(
@@ -92,28 +96,29 @@ function wpengine_render_postslist_block( $attributes ) {
 			);
 
 			$html .= '<header class="entry-header">';
-				$html .= sprintf(
-					'<h2><a href="%1$s" rel="bookmark">%2$s</a></h2>',
-					esc_url( get_permalink( $post_id ) ),
-					esc_html( $title )
-				);
-				$html .= '<div class="entry-meta">';
-					$html .= sprintf(
-						'<span class="post-author" itemprop="author" itemtype="https://schema.org/Person"><a href="%2$s" itemprop="url" rel="author"><span itemprop="name">%1$s</span></a></span>',
-						esc_html( get_the_author_meta( 'display_name', get_the_author_meta( 'ID' ) ) ),
-						esc_html( get_author_posts_url( get_the_author_meta( 'ID' ) ) )
-					);
-					$html .= sprintf(
-						'<time datetime="%1$s" class="entry-date published" itemprop="datePublished"><a href="%2$s" itemprop="url">%3$s</a></time>',
-						esc_attr( get_the_date( 'c', $post_id ) ),
-						esc_url( get_permalink( $post_id ) ),
-						esc_html( get_the_date( '', $post_id ) )
-					);
-				$html .= '</div>';
+			$html .= sprintf(
+				'<h2><a href="%1$s" rel="bookmark">%2$s</a></h2>',
+				esc_url( get_permalink( $post_id ) ),
+				esc_html( $title )
+			);
+			$html .= '<div class="entry-meta">';
+			$html .= sprintf(
+				'<span class="post-author" itemprop="author" itemtype="https://schema.org/Person"><a href="%2$s" itemprop="url" rel="author"><span itemprop="name">%1$s</span></a></span>',
+				esc_html( get_the_author_meta( 'display_name', get_the_author_meta( 'ID' ) ) ),
+				esc_html( get_author_posts_url( get_the_author_meta( 'ID' ) ) )
+			);
+			$html .= sprintf(
+				'<time datetime="%1$s" class="entry-date published" itemprop="datePublished"><a href="%2$s" itemprop="url">%3$s</a></time>',
+				esc_attr( get_the_date( 'c', $post_id ) ),
+				esc_url( get_permalink( $post_id ) ),
+				esc_html( get_the_date( '', $post_id ) )
+			);
+			$html .= '</div>';
 
 			$html .= '</header>';
 
-			if( $post_thumb_id ){
+			if ( $post_thumb_id ) {
+
 				/* Display the featured image */
 				$html .= sprintf(
 					'<div class="entry-media"><a href="%1$s" class="post-thumbnail" rel="bookmark" aria-hidden="true" tabindex="-1">%2$s</a></div>',
@@ -123,10 +128,8 @@ function wpengine_render_postslist_block( $attributes ) {
 			}
 
 			$html .= '<div class="entry-summary">';
-				$html .= wp_kses_post( $excerpt );
+			$html .= wp_kses_post( $excerpt );
 			$html .= '</div>';
-			
-
 			$html .= '</article>';
 		}
 
@@ -136,11 +139,12 @@ function wpengine_render_postslist_block( $attributes ) {
 		 * @link https://codex.wordpress.org/Function_Reference/the_posts_pagination
 		 */
 		$html .= '<nav class="navigation pagination" role="navigation">';
-		$html .= '<h2 class="screen-reader-text">'. __('Posts navigation', 'postslist-block') .'</h2>';
+		$html .= '<h2 class="screen-reader-text">' . __( 'Posts navigation', 'postslist-block' ) . '</h2>';
 		$html .= '<div class="nav-links">';
-			$html .= paginate_links( array(
+		$html .= paginate_links(
+			array(
 				'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-				'total'        => $postsListQuery->max_num_pages,
+				'total'        => $posts_list_query->max_num_pages,
 				'current'      => max( 1, get_query_var( 'paged' ) ),
 				'format'       => '?paged=%#%',
 				'show_all'     => false,
@@ -152,7 +156,8 @@ function wpengine_render_postslist_block( $attributes ) {
 				'next_text'    => sprintf( '%1$s <i></i>', __( 'Older Posts &raquo;', 'postslist-block' ) ),
 				'add_args'     => false,
 				'add_fragment' => '',
-			) );
+			)
+		);
 		$html .= '</div>';
 		$html .= '</nav>';
 		/* Restore original post data */
@@ -160,7 +165,6 @@ function wpengine_render_postslist_block( $attributes ) {
 	}
 
 	$html .= '</section>';
-	
 	return $html;
 }
 /**
@@ -186,4 +190,66 @@ function wpengine_register_postslist_block() {
 		)
 	);
 }
+
 add_action( 'init', 'wpengine_register_postslist_block' );
+
+if ( ! function_exists( 'wpengine_blocks_register_rest_fields' ) ) {
+	add_action( 'rest_api_init', 'wpengine_blocks_register_rest_fields' );
+	/**
+	 * Create API fields for additional info
+	 */
+	function wpengine_blocks_register_rest_fields() {
+		register_rest_field(
+			array( 'post' ),
+			'featured_image_src_full',
+			array(
+				'get_callback'    => 'blocks_get_image_src_full',
+				'update_callback' => null,
+				'schema'          => null,
+			)
+		);
+
+		/* Add author info */
+		register_rest_field(
+			'post',
+			'author_info',
+			array(
+				'get_callback'    => 'blocks_get_author_info',
+				'update_callback' => null,
+				'schema'          => null,
+			)
+		);
+	}
+
+	/**
+	 * Get full image source for the rest field
+	 *
+	 * @param String $object  The object type.
+	 * @param String $field_name  Name of the field to retrieve.
+	 * @param String $request  The current request object.
+	 */
+	function blocks_get_image_src_full( $object, $field_name, $request ) {
+		$feat_img_array = wp_get_attachment_image_src(
+			$object['featured_media'],
+			'full',
+			false
+		);
+		return $feat_img_array[0];
+	}
+
+	/**
+	 * Get author info for the rest field
+	 *
+	 * @param String $object  The object type.
+	 * @param String $field_name  Name of the field to retrieve.
+	 * @param String $request  The current request object.
+	 */
+	function blocks_get_author_info( $object, $field_name, $request ) {
+		/* Get the author name */
+		$author_data['display_name'] = get_the_author_meta( 'display_name', $object['author'] );
+		/* Get the author link */
+		$author_data['author_link'] = get_author_posts_url( $object['author'] );
+		/* Return the author data */
+		return $author_data;
+	}
+}

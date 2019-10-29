@@ -65,7 +65,7 @@ class Edit extends Component {
 				</Fragment>
 			);
 		}
-
+		
 		return (
 			<Fragment>
 				{ isSelected && (
@@ -91,7 +91,7 @@ class Edit extends Component {
 									'type-' + post.type,
 									'status-' + post.status,
 									'format-' + post.format,
-									post.featured_image_src ? 'has-post-thumbnail' : null
+									post.featured_media ? 'has-post-thumbnail' : null
 								) }
 							>
 								<header className="entry-header">
@@ -113,10 +113,10 @@ class Edit extends Component {
 										</span>
 									</div>
 								</header>
-								{ post.featured_image_src ?
+								{ post.featured_media ?
 									<div className="entry-media">
 										<a href={ post.link } className="post-thumbnail" target="_blank" rel="noopener noreferrer">
-											<figure><img src={ post.featured_image_src } alt="" /></figure>
+											<figure><img src={ post.featured_image_src_full } alt="" /></figure>
 										</a>
 									</div> :
 									null }
