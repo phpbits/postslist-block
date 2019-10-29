@@ -1,0 +1,10 @@
+{
+	"name": "wpengine-exercise/postslist",
+	"category": "common",
+	"attributes": {
+		"postsToShow": {
+			"type": "number",
+			"default": 6
+		}
+	}
+}

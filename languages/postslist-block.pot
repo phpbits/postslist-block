@@ -1,0 +1,24 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: src/blocks/posts-list/components/edit.js:113
+msgid "Posts navigation"
+msgstr ""
+
+#: src/blocks/posts-list/components/edit.js:44
+msgid "Posts List Block"
+msgstr ""
+
+#: src/blocks/posts-list/components/edit.js:48
+msgid "No posts found."
+msgstr ""
+
+#: src/blocks/posts-list/components/edit.js:81
+msgid "(Untitled)"
+msgstr ""
+
+#: src/blocks/posts-list/components/edit.js:90
+msgid "Posted on "
+msgstr ""

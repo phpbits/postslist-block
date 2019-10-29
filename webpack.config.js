@@ -11,7 +11,6 @@ module.exports = {
 		index: path.resolve(process.cwd(), 'src', 'index.js'),
 		style: path.resolve(process.cwd(), 'src', 'style.scss'),
 		editor: path.resolve(process.cwd(), 'src', 'editor.scss'),
-		admin: path.resolve(process.cwd(), 'src', 'admin.scss'),
 	},
 	optimization: {
 		...defaultConfig.optimization,
