@@ -56,7 +56,7 @@ body {
 				margin-right: auto;
 
 				&,
- img {
+				img {
 					max-width: 100%;
 				}
 			}
@@ -87,6 +87,8 @@ body {
 					justify-content: space-between;
 
 					a {
+						font-size: 18px;
+						font-weight: 400;
 						text-decoration: none;
 					}
 

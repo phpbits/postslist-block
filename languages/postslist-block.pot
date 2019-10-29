@@ -7,11 +7,11 @@ msgstr ""
 msgid "Posts navigation"
 msgstr ""
 
-#: src/blocks/posts-list/components/edit.js:122
+#: src/blocks/posts-list/components/edit.js:126
 msgid "« Newer Posts"
 msgstr ""
 
-#: src/blocks/posts-list/components/edit.js:123
+#: src/blocks/posts-list/components/edit.js:133
 msgid "Older Posts »"
 msgstr ""
 

@@ -13,7 +13,7 @@ const { compose } = wp.compose;
 const { withSelect } = wp.data;
 const { decodeEntities } = wp.htmlEntities;
 const { Fragment, Component } = wp.element;
-const { Placeholder, Spinner, withSpokenMessages } = wp.components;
+const { Placeholder, Spinner, withSpokenMessages, Button } = wp.components;
 /**
  * Block edit function
  */
@@ -119,12 +119,21 @@ class Edit extends Component {
 					<nav className="navigation pagination" role="navigation">
 						<h2 className="screen-reader-text">{ __( 'Posts navigation', 'postslist-block' ) }</h2>
 						<div className="nav-links">
-							{ paged > 1 ? <a href="#" className="prev page-numbers" onClick={ () => {
-								setAttributes( { paged: paged - 1 } );
-							} }>{ __( '« Newer Posts', 'postslist-block' ) }</a> : '' }
-							<a href="#" className="next page-numbers" onClick={ () => {
-								setAttributes( { paged: paged + 1 } );
-							} }>{ __( 'Older Posts »', 'postslist-block' ) }</a>
+							{ paged > 1 ?
+								<Button href="#" isLink className="prev page-numbers" onClick={ () => {
+									setAttributes( { paged: paged - 1 } );
+								} }>
+									{ __( '« Newer Posts', 'postslist-block' ) }
+								</Button> :
+								'' }
+							{ postsList.length > paged ?
+								<Button href="#" isLink className="next page-numbers" onClick={ () => {
+									setAttributes( { paged: paged + 1 } );
+								} }>
+									{ __( 'Older Posts »', 'postslist-block' ) }
+								</Button> :
+								'' }
+
 						</div>
 					</nav>
 				</section>

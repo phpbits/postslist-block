@@ -418,7 +418,8 @@ var _wp$element = wp.element,
 var _wp$components = wp.components,
     Placeholder = _wp$components.Placeholder,
     Spinner = _wp$components.Spinner,
-    withSpokenMessages = _wp$components.withSpokenMessages;
+    withSpokenMessages = _wp$components.withSpokenMessages,
+    Button = _wp$components.Button;
 /**
  * Block edit function
  */
@@ -452,8 +453,8 @@ function (_Component) {
           className = _this$props.className;
       var paged = attributes.paged;
 
-      var truncate = function truncate(str, no_words) {
-        return str.split(' ').splice(0, no_words).join(' ');
+      var truncate = function truncate(str, noWords) {
+        return str.split(' ').splice(0, noWords).join(' ');
       }; // Check if there are posts
 
 
@@ -478,31 +479,34 @@ function (_Component) {
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("h2", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
           href: post.link,
           target: "_blank",
-          rel: "bookmark"
+          rel: "noopener noreferrer"
         }, decodeEntities(post.title.rendered.trim()) || __('(Untitled)', 'postslist-block'))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
           className: "entry-meta"
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
-          class: "post-author"
+          className: "post-author"
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
           target: "_blank",
+          rel: "noopener noreferrer",
           href: post.author_info.author_link
         }, post.author_info.display_name)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("span", {
-          class: "posted-on"
+          className: "posted-on"
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
           href: post.link,
-          target: "_blank"
+          target: "_blank",
+          rel: "noopener noreferrer"
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("time", {
-          class: "entry-date published",
-          datetime: moment__WEBPACK_IMPORTED_MODULE_8___default()(post.date_gmt).utc().format()
+          className: "entry-date published",
+          dateTime: moment__WEBPACK_IMPORTED_MODULE_8___default()(post.date_gmt).utc().format()
         }, moment__WEBPACK_IMPORTED_MODULE_8___default()(post.date_gmt).local().format('MMMM DD, Y', 'postslist-block')))))), post.featured_image_src ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
           className: "entry-media"
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
           href: post.link,
           className: "post-thumbnail",
           target: "_blank",
-          rel: "bookmark"
+          rel: "noopener noreferrer"
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("figure", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("img", {
-          src: post.featured_image_src
+          src: post.featured_image_src,
+          alt: ""
         })))) : null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
           className: "entry-summary"
         }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
@@ -511,29 +515,31 @@ function (_Component) {
           }
         })));
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("nav", {
-        class: "navigation pagination",
+        className: "navigation pagination",
         role: "navigation"
       }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("h2", {
-        class: "screen-reader-text"
+        className: "screen-reader-text"
       }, __('Posts navigation', 'postslist-block')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
         className: "nav-links"
-      }, paged > 1 ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
+      }, paged > 1 ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(Button, {
         href: "#",
+        isLink: true,
         className: "prev page-numbers",
         onClick: function onClick() {
           setAttributes({
             paged: paged - 1
           });
         }
-      }, __('« Newer Posts', 'postslist-block')) : '', Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
+      }, __('« Newer Posts', 'postslist-block')) : '', postsList.length > paged ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(Button, {
         href: "#",
+        isLink: true,
         className: "next page-numbers",
         onClick: function onClick() {
           setAttributes({
             paged: paged + 1
           });
         }
-      }, __('Older Posts »', 'postslist-block'))))));
+      }, __('Older Posts »', 'postslist-block')) : ''))));
     }
   }]);
 
