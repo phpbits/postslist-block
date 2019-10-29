@@ -1,6 +1,8 @@
 <?php
 /**
  * Load assets for our blocks.
+ *
+ * @package PostsListBlockMain
  */
 
 // Exit if accessed directly.
@@ -80,10 +82,10 @@ class PostsList_Block_Assets {
 	 */
 	public function editor_assets() {
 
-		if( ! is_admin() ){
+		if ( ! is_admin() ) {
 			return;
 		}
-		if( ! $this->is_edit_or_new_admin_page() ){ //load on allowed pages only
+		if ( ! $this->is_edit_or_new_admin_page() ) {
 			return;
 		}
 
@@ -111,9 +113,10 @@ class PostsList_Block_Assets {
 	 *
 	 * @return bool true or false
 	 */
-	function is_edit_or_new_admin_page() {
+	public function is_edit_or_new_admin_page() {
 		global $pagenow;
- 		return ( is_admin() && ( $pagenow === 'post.php' || $pagenow === 'post-new.php' ) );
+		// phpcs:ignore
+		return ( is_admin() && ( $pagenow === 'post.php' || $pagenow === 'post-new.php' ) );
 	}
 
 }
