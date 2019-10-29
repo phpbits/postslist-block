@@ -1,0 +1,67 @@
+{
+  "name": "postslist-block",
+  "version": "1.0.0",
+  "description": "Gutenberg block editor posts list block",
+  "author": "phpbits",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "gutenberg",
+    "posts",
+    "posts block"
+  ],
+  "homepage": "http://github.com/phpbits/postslist-block",
+  "repository": "http://github.com/phpbits/postslist-block",
+  "bugs": {
+    "url": "http://github.com/phpbits/postslist-block/issues"
+  },
+  "babel": {
+    "presets": [
+      "@wordpress/default"
+    ],
+    "plugins": [
+      [
+        "@wordpress/babel-plugin-makepot",
+        {
+          "output": "languages/postslist-block.pot"
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@babel/runtime": "^7.6.3",
+    "@wordpress/babel-plugin-makepot": "^3.2.1",
+    "@wordpress/babel-preset-default": "^4.6.2",
+    "@wordpress/i18n": "^3.6.1",
+    "@wordpress/scripts": "^5.1.0",
+    "babel-eslint": "^10.0.3",
+    "classnames": "^2.2.6",
+    "css-loader": "^3.2.0",
+    "eslint-plugin-eslint-comments": "^3.1.2",
+    "eslint-plugin-react": "^7.16.0",
+    "ignore-emit-webpack-plugin": "^2.0.2",
+    "lodash": "^4.17.15",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "npm-run-all": "^4.1.5",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "path": "^0.12.7",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "sass-loader": "^8.0.0"
+  },
+  "scripts": {
+    "build": "npm-run-all makepot build-assets",
+    "build-assets": "wp-scripts build",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses",
+    "lint:css": "wp-scripts lint-style '**/*.scss'",
+    "lint:css-fix": "wp-scripts lint-style '**/*.scss' --fix",
+    "lint:js": "wp-scripts lint-js '**/*.js'",
+    "lint:js-fix": "wp-scripts lint-js '**/*.js' --fix",
+    "lint:pkg-json": "wp-scripts lint-pkg-json",
+    "start": "wp-scripts start",
+    "test:e2e": "wp-scripts test-e2e",
+    "test:unit": "wp-scripts test-unit-js",
+    "makepot": "wp i18n make-pot . languages/postslist-block.pot --exclude=node_modules,vendor,build"
+  }
+}

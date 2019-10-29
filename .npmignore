@@ -1,0 +1,7 @@
+**/node_modules/**
+coverage
+cypress
+node_modules
+.DS_Store
+.ftppass
+*.cache
