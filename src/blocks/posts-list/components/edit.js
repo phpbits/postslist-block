@@ -6,6 +6,11 @@ import classnames from 'classnames';
 import moment from 'moment';
 
 /**
+ * Internal dependencies
+ */
+import Inspector from './inspector';
+
+/**
  * WordPress dependencies
  */
 const { __ } = wp.i18n;
@@ -28,6 +33,7 @@ class Edit extends Component {
 
 	render() {
 		const {
+			isSelected,
 			attributes,
 			setAttributes,
 			postsList,
@@ -62,6 +68,11 @@ class Edit extends Component {
 
 		return (
 			<Fragment>
+				{ isSelected && (
+					<Inspector
+						{ ...this.props }
+					/>
+				) }
 				<section
 					className={ classnames(
 						className,
@@ -126,13 +137,11 @@ class Edit extends Component {
 									{ __( '« Newer Posts', 'postslist-block' ) }
 								</Button> :
 								'' }
-							{ postsList.length > paged ?
-								<Button href="#" isLink className="next page-numbers" onClick={ () => {
-									setAttributes( { paged: paged + 1 } );
-								} }>
-									{ __( 'Older Posts »', 'postslist-block' ) }
-								</Button> :
-								'' }
+							<Button href="#" isLink className="next page-numbers" onClick={ () => {
+								setAttributes( { paged: paged + 1 } );
+							} }>
+								{ __( 'Older Posts »', 'postslist-block' ) }
+							</Button>
 
 						</div>
 					</nav>
