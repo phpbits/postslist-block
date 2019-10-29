@@ -20,13 +20,13 @@ import * as postslist from './blocks/posts-list';
 export function registerBlocks() {
 	[
 		postslist,
-	].forEach((block) => {
-		if (!block) {
+	].forEach( ( block ) => {
+		if ( ! block ) {
 			// return;
 		}
 		const { name, category, settings } = block;
-		registerBlockType(`${name}`, { category: category, ...settings });
-	});
+		registerBlockType( `${ name }`, { category, ...settings } );
+	} );
 }
 
 registerBlocks();

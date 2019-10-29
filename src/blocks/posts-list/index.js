@@ -13,12 +13,12 @@ import Edit from './components/edit';
  * Block constants
  */
 const { name, category, attributes } = metadata;
-const title = __('Posts List', 'postslist-block');
-const description = __('Display posts list with defined number of items to be shown.', 'postslist-block');
+const title = __( 'Posts List', 'postslist-block' );
+const description = __( 'Display posts list with defined number of items to be shown.', 'postslist-block' );
 const keywords = [
-	__('posts', 'postslist-block'),
-	__('post', 'postslist-block'),
-	__('blog', 'postslist-block'),
+	__( 'posts', 'postslist-block' ),
+	__( 'post', 'postslist-block' ),
+	__( 'blog', 'postslist-block' ),
 ];
 
 const settings = {
@@ -28,7 +28,7 @@ const settings = {
 	keywords,
 	attributes,
 	supports: {
-		align: ['wide', 'full'],
+		align: [ 'wide', 'full' ],
 	},
 	edit: Edit,
 	save() {

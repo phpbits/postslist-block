@@ -1,16 +1,16 @@
-const defaultConfig = require('./node_modules/@wordpress/scripts/config/webpack.config.js');
-const path = require('path');
-const postcssPresetEnv = require('postcss-preset-env');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const defaultConfig = require( './node_modules/@wordpress/scripts/config/webpack.config.js' );
+const path = require( 'path' );
+const postcssPresetEnv = require( 'postcss-preset-env' );
+const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
+const IgnoreEmitPlugin = require( 'ignore-emit-webpack-plugin' );
+const OptimizeCSSAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' );
 
 module.exports = {
 	...defaultConfig,
 	entry: {
-		index: path.resolve(process.cwd(), 'src', 'index.js'),
-		style: path.resolve(process.cwd(), 'src', 'style.scss'),
-		editor: path.resolve(process.cwd(), 'src', 'editor.scss'),
+		index: path.resolve( process.cwd(), 'src', 'index.js' ),
+		style: path.resolve( process.cwd(), 'src', 'style.scss' ),
+		editor: path.resolve( process.cwd(), 'src', 'editor.scss' ),
 	},
 	optimization: {
 		...defaultConfig.optimization,
@@ -60,7 +60,7 @@ module.exports = {
 						options: {
 							ident: 'postcss',
 							plugins: () => [
-								postcssPresetEnv({
+								postcssPresetEnv( {
 									stage: 3,
 									features: {
 										'custom-media-queries': {
@@ -71,7 +71,7 @@ module.exports = {
 										},
 										'nesting-rules': true,
 									},
-								}),
+								} ),
 							],
 						},
 					},
@@ -81,15 +81,15 @@ module.exports = {
 	},
 	plugins: [
 		...defaultConfig.plugins,
-		new MiniCssExtractPlugin({
+		new MiniCssExtractPlugin( {
 			filename: '[name].build.css',
-		}),
-		new OptimizeCSSAssetsPlugin({
+		} ),
+		new OptimizeCSSAssetsPlugin( {
 			cssProcessorPluginOptions: {
-				preset: ['default', { discardComments: { removeAll: true } }],
+				preset: [ 'default', { discardComments: { removeAll: true } } ],
 			},
-		}),
-		new IgnoreEmitPlugin([
+		} ),
+		new IgnoreEmitPlugin( [
 			'editor.js',
 			'style.js',
 			'admin.js',
@@ -101,6 +101,6 @@ module.exports = {
 			'editor.build.css.map',
 			'style.build.css.map',
 			'admin.build.css.map',
-		]),
+		] ),
 	],
 };

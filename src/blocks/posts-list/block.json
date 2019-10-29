@@ -5,6 +5,10 @@
 		"postsToShow": {
 			"type": "number",
 			"default": 6
+		},
+		"paged": {
+			"type": "number",
+			"default": 1
 		}
 	}
 }

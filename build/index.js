@@ -360,7 +360,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /*! exports provided: name, category, attributes, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"wpengine-exercise/postslist\",\"category\":\"common\",\"attributes\":{\"postsToShow\":{\"type\":\"number\",\"default\":6}}}");
+module.exports = JSON.parse("{\"name\":\"wpengine-exercise/postslist\",\"category\":\"common\",\"attributes\":{\"postsToShow\":{\"type\":\"number\",\"default\":6},\"paged\":{\"type\":\"number\",\"default\":1}}}");
 
 /***/ }),
 
@@ -417,7 +417,8 @@ var _wp$element = wp.element,
     Component = _wp$element.Component;
 var _wp$components = wp.components,
     Placeholder = _wp$components.Placeholder,
-    Spinner = _wp$components.Spinner;
+    Spinner = _wp$components.Spinner,
+    withSpokenMessages = _wp$components.withSpokenMessages;
 /**
  * Block edit function
  */
@@ -434,6 +435,14 @@ function (_Component) {
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Edit, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var setAttributes = this.props.setAttributes;
+      setAttributes({
+        paged: 1
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -441,14 +450,14 @@ function (_Component) {
           setAttributes = _this$props.setAttributes,
           postsList = _this$props.postsList,
           className = _this$props.className;
+      var paged = attributes.paged;
 
       var truncate = function truncate(str, no_words) {
         return str.split(' ').splice(0, no_words).join(' ');
       }; // Check if there are posts
 
 
-      var hasPosts = Array.isArray(postsList) && postsList.length;
-      console.log(postsList); //placeholder when there are no posts or still loading
+      var hasPosts = Array.isArray(postsList) && postsList.length; //placeholder when there are no posts or still loading
 
       if (!hasPosts) {
         return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(Fragment, null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])(Placeholder, {
@@ -508,12 +517,22 @@ function (_Component) {
         class: "screen-reader-text"
       }, __('Posts navigation', 'postslist-block')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("div", {
         className: "nav-links"
-      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
+      }, paged > 1 ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
         href: "#",
-        className: "prev page-numbers"
-      }, __('« Newer Posts', 'postslist-block')), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
+        className: "prev page-numbers",
+        onClick: function onClick() {
+          setAttributes({
+            paged: paged - 1
+          });
+        }
+      }, __('« Newer Posts', 'postslist-block')) : '', Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__["createElement"])("a", {
         href: "#",
-        className: "next page-numbers"
+        className: "next page-numbers",
+        onClick: function onClick() {
+          setAttributes({
+            paged: paged + 1
+          });
+        }
       }, __('Older Posts »', 'postslist-block'))))));
     }
   }]);
@@ -522,13 +541,16 @@ function (_Component) {
 }(Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (compose([withSelect(function (select, props) {
-  var postsToShow = props.attributes.postsToShow;
+  var _props$attributes = props.attributes,
+      postsToShow = _props$attributes.postsToShow,
+      paged = _props$attributes.paged;
 
   var _select = select('core'),
       getEntityRecords = _select.getEntityRecords;
 
   var postsListQuery = Object(lodash__WEBPACK_IMPORTED_MODULE_6__["pickBy"])({
     per_page: postsToShow,
+    offset: paged > 1 ? postsToShow * (paged - 1) : 0,
     exclude: [select('core/editor').getCurrentPostId()]
   }, function (value) {
     return !Object(lodash__WEBPACK_IMPORTED_MODULE_6__["isUndefined"])(value);
@@ -536,7 +558,7 @@ function (_Component) {
   return {
     postsList: getEntityRecords('postType', 'post', postsListQuery)
   };
-})])(Edit));
+}), withSpokenMessages])(Edit));
 
 /***/ }),
 

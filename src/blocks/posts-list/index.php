@@ -12,7 +12,7 @@
  */
 function wpengine_render_postslist_block( $attributes ) {
 	global $post;
-
+	
 	/* Setup the query */
 	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 	$postsListQuery = new WP_Query(
@@ -25,7 +25,7 @@ function wpengine_render_postslist_block( $attributes ) {
 		)
 	);
 
-	$html = '<section class="'. ( isset( $attributes['className'] ) ? $attributes['className'] : '' ) .'">';
+	$html = '<section class="postslist-block '. ( isset( $attributes['className'] ) ? $attributes['className'] : '' ) .' '. ( isset( $attributes['align'] ) ? 'align'. $attributes['align'] : '' ) .'">';
 
 	/* Start the loop */
 	if ( $postsListQuery->have_posts() ) {
