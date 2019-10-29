@@ -1,14 +1,88 @@
+# Copyright (C) 2019 Jeffrey Carandang
+# This file is distributed under the same license as the Posts List Block plugin.
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=utf-8\n"
-"X-Generator: babel-plugin-makepot\n"
+"Project-Id-Version: Posts List Block 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/postslist-block\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-10-29T18:46:08+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.1.0\n"
+"X-Domain: postslist-block\n"
+
+#. Plugin Name of the plugin
+#: src/blocks/posts-list/components/edit.js:58
+msgid "Posts List Block"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "http://github.com/phpbits/postslist-block"
+msgstr ""
+
+#. Description of the plugin
+msgid "Gutenberg Posts List Block displays carousel posts list with user-defined number of posts ."
+msgstr ""
+
+#. Author of the plugin
+msgid "Jeffrey Carandang"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://jeffreycarandang.com/"
+msgstr ""
+
+#: class-postslistblockmain.php:68
+#: class-postslistblockmain.php:79
+msgid "Cheating huh?"
+msgstr ""
+
+#: src/blocks/posts-list/index.php:47
+msgid "Untitled"
+msgstr ""
+
+#: src/blocks/posts-list/index.php:142
+#: src/blocks/posts-list/components/edit.js:131
+msgid "Posts navigation"
+msgstr ""
+
+#: src/blocks/posts-list/index.php:155
+msgid "&laquo; Newer Posts"
+msgstr ""
+
+#: src/blocks/posts-list/index.php:156
+msgid "Older Posts &raquo;"
+msgstr ""
+
+#: src/blocks/posts-list/index.js:16
+msgid "Posts List"
+msgstr ""
+
+#: src/blocks/posts-list/index.js:17
+msgid "Display posts list with defined number of items to be shown."
+msgstr ""
+
+#: src/blocks/posts-list/index.js:19
+msgid "posts"
+msgstr ""
+
+#: src/blocks/posts-list/index.js:20
+msgid "post"
+msgstr ""
+
+#: src/blocks/posts-list/index.js:21
+msgid "blog"
+msgstr ""
+
+#: src/blocks/posts-list/components/edit.js:62
+msgid "No posts found."
+msgstr ""
 
 #: src/blocks/posts-list/components/edit.js:100
 msgid "(Untitled)"
-msgstr ""
-
-#: src/blocks/posts-list/components/edit.js:131
-msgid "Posts navigation"
 msgstr ""
 
 #: src/blocks/posts-list/components/edit.js:137
@@ -17,14 +91,6 @@ msgstr ""
 
 #: src/blocks/posts-list/components/edit.js:143
 msgid "Older Posts »"
-msgstr ""
-
-#: src/blocks/posts-list/components/edit.js:58
-msgid "Posts List Block"
-msgstr ""
-
-#: src/blocks/posts-list/components/edit.js:62
-msgid "No posts found."
 msgstr ""
 
 #: src/blocks/posts-list/components/inspector.js:26

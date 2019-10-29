@@ -65,7 +65,7 @@ class Edit extends Component {
 				</Fragment>
 			);
 		}
-		
+
 		return (
 			<Fragment>
 				{ isSelected && (
