@@ -2,17 +2,17 @@
   "name": "postslist-block",
   "version": "1.0.0",
   "description": "Gutenberg block editor posts list block",
-  "author": "phpbits",
+  "author": "anonymous",
   "license": "GPL-2.0-or-later",
   "keywords": [
     "gutenberg",
     "posts",
     "posts block"
   ],
-  "homepage": "http://github.com/phpbits/postslist-block",
-  "repository": "http://github.com/phpbits/postslist-block",
+  "homepage": "http://github.com/anonymous/postslist-block",
+  "repository": "http://github.com/anonymous/postslist-block",
   "bugs": {
-    "url": "http://github.com/phpbits/postslist-block/issues"
+    "url": "http://github.com/anonymous/postslist-block/issues"
   },
   "babel": {
     "presets": [

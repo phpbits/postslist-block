@@ -1,4 +1,4 @@
-# Copyright (C) 2019 Jeffrey Carandang
+# Copyright (C) 2019 Anonymous
 # This file is distributed under the same license as the Posts List Block plugin.
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-10-30T04:05:59+00:00\n"
+"POT-Creation-Date: 2019-10-30T04:24:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.1.0\n"
 "X-Domain: postslist-block\n"
@@ -20,7 +20,7 @@ msgid "Posts List Block"
 msgstr ""
 
 #. Plugin URI of the plugin
-msgid "http://github.com/phpbits/postslist-block"
+msgid "http://github.com/anonymous/postslist-block"
 msgstr ""
 
 #. Description of the plugin
@@ -28,11 +28,11 @@ msgid "Gutenberg Posts List Block displays carousel posts list with user-defined
 msgstr ""
 
 #. Author of the plugin
-msgid "Jeffrey Carandang"
+msgid "Anonymous"
 msgstr ""
 
 #. Author URI of the plugin
-msgid "https://jeffreycarandang.com/"
+msgid "https://anonymous.com/"
 msgstr ""
 
 #: class-postslistblockmain.php:68

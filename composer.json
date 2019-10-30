@@ -1,5 +1,5 @@
 {
-	"name": "phpbits/postslist-block",
+	"name": "postslist-block",
 	"type": "wordpress-plugin",
 	"require": {
 		"php": ">=5.6"

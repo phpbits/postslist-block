@@ -1,16 +1,16 @@
 <?php
 /**
  * Plugin Name: Posts List Block
- * Plugin URI: http://github.com/phpbits/postslist-block
+ * Plugin URI: http://github.com/anonymous/postslist-block
  * Description: Gutenberg Posts List Block displays carousel posts list with user-defined number of posts .
  * Version: 1.0
- * Author: Jeffrey Carandang
- * Author URI: https://jeffreycarandang.com/
+ * Author: Anonymous
+ * Author URI: https://anonymous.com/
  * Text Domain: postslist-block
  * Domain Path: languages
  *
  * @category Gutenberg
- * @author Jeffrey Carandang
+ * @author Anonymous
  * @version 1.0
  * @package PostsListBlockMain
  */
