@@ -1,5 +1,5 @@
 {
-	"name": "postslist-block",
+	"name": "anonymous/postslist-block",
 	"type": "wordpress-plugin",
 	"require": {
 		"php": ">=5.6"
